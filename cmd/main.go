@@ -30,15 +30,24 @@ func main() {
 
 	// Configure CORS
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://localhost:5173", "http://127.0.0.1:5173"}
+	config.AllowOrigins = []string{
+		"http://localhost:5173",
+		"http://127.0.0.1:5173",
+		"https://mytasks-project.vercel.app",
+		"https://*.vercel.app",
+		"https://barsuc.ru",
+		"barsuc.ru",
+	}
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
 	config.AllowHeaders = []string{
 		"Origin",
 		"Content-Type",
 		"Accept",
+		"Authorization",
 		"X-Requested-With",
 	}
 	config.ExposeHeaders = []string{"Content-Length"}
+	config.AllowCredentials = true
 	r.Use(cors.New(config))
 
 	// Routes
