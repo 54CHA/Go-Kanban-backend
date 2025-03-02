@@ -7,7 +7,7 @@
 
 # Go workspace files
 *.test
-*.out
+# *.out  # Comment this out temporarily
 
 # Dependency directories
 vendor/
